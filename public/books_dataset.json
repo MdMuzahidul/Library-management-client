@@ -1,0 +1,202 @@
+[
+  {
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "genre": "Fiction",
+    "year_published": 1960,
+    "ISBN": "9780061120084",
+    "image_url": "https://example.com/images/tokillamockingbird.jpg",
+    "copies_available": 4,
+    "description": "A timeless novel about racial injustice in the Deep South, seen through the eyes of a young girl named Scout Finch."
+  },
+  {
+    "title": "1984",
+    "author": "George Orwell",
+    "genre": "Dystopian",
+    "year_published": 1949,
+    "ISBN": "9780451524935",
+    "image_url": "https://example.com/images/1984.jpg",
+    "copies_available": 6,
+    "description": "A chilling portrayal of a totalitarian society under constant surveillance, where independent thought is a crime."
+  },
+  {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "genre": "Romance",
+    "year_published": 1813,
+    "ISBN": "9780141439518",
+    "image_url": "https://example.com/images/prideandprejudice.jpg",
+    "copies_available": 5,
+    "description": "A witty and romantic tale of manners and misunderstandings in 19th-century England, centered around Elizabeth Bennet and Mr. Darcy."
+  },
+  {
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "genre": "Tragedy",
+    "year_published": 1925,
+    "ISBN": "9780743273565",
+    "image_url": "https://example.com/images/thegreatgatsby.jpg",
+    "copies_available": 3,
+    "description": "A poignant story of wealth, love, and the American Dream, told through the mysterious figure of Jay Gatsby."
+  },
+  {
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "genre": "Fiction",
+    "year_published": 1951,
+    "ISBN": "9780316769488",
+    "image_url": "https://example.com/images/catcherintherye.jpg",
+    "copies_available": 2,
+    "description": "A classic coming-of-age story following Holden Caulfield as he grapples with adolescence and alienation in post-war America."
+  },
+  {
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "genre": "Fantasy",
+    "year_published": 1937,
+    "ISBN": "9780547928227",
+    "image_url": "https://example.com/images/thehobbit.jpg",
+    "copies_available": 7,
+    "description": "Bilbo Baggins embarks on an unexpected adventure in this beloved prelude to The Lord of the Rings."
+  },
+  {
+    "title": "Fahrenheit 451",
+    "author": "Ray Bradbury",
+    "genre": "Dystopian",
+    "year_published": 1953,
+    "ISBN": "9781451673319",
+    "image_url": "https://example.com/images/fahrenheit451.jpg",
+    "copies_available": 4,
+    "description": "A haunting tale of censorship and resistance in a future where books are outlawed and burned."
+  },
+  {
+    "title": "Jane Eyre",
+    "author": "Charlotte Bront\u00eb",
+    "genre": "Gothic",
+    "year_published": 1847,
+    "ISBN": "9780141441146",
+    "image_url": "https://example.com/images/janeeyre.jpg",
+    "copies_available": 3,
+    "description": "An orphaned girl becomes a governess and falls in love with her brooding employer, Mr. Rochester, in this Gothic romance."
+  },
+  {
+    "title": "Moby Dick",
+    "author": "Herman Melville",
+    "genre": "Adventure",
+    "year_published": 1851,
+    "ISBN": "9781503280786",
+    "image_url": "https://example.com/images/mobydick.jpg",
+    "copies_available": 2,
+    "description": "Captain Ahab\u2019s obsessive quest to kill the white whale is a seafaring epic of obsession and revenge."
+  },
+  {
+    "title": "War and Peace",
+    "author": "Leo Tolstoy",
+    "genre": "Historical",
+    "year_published": 1869,
+    "ISBN": "9780199232765",
+    "image_url": "https://example.com/images/warandpeace.jpg",
+    "copies_available": 1,
+    "description": "A sweeping narrative of love, war, and society in Russia during the Napoleonic Wars."
+  },
+  {
+    "title": "The Odyssey",
+    "author": "Homer",
+    "genre": "Epic",
+    "year_published": -800,
+    "ISBN": "9780140268867",
+    "image_url": "https://example.com/images/odyssey.jpg",
+    "copies_available": 4,
+    "description": "The epic journey of Odysseus as he attempts to return home from the Trojan War, encountering mythical creatures along the way."
+  },
+  {
+    "title": "Crime and Punishment",
+    "author": "Fyodor Dostoevsky",
+    "genre": "Psychological Fiction",
+    "year_published": 1866,
+    "ISBN": "9780140449136",
+    "image_url": "https://example.com/images/crimeandpunishment.jpg",
+    "copies_available": 3,
+    "description": "A psychological exploration of guilt and redemption as Raskolnikov grapples with his crime."
+  },
+  {
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "genre": "Science Fiction",
+    "year_published": 1932,
+    "ISBN": "9780060850524",
+    "image_url": "https://example.com/images/bravenewworld.jpg",
+    "copies_available": 5,
+    "description": "A dystopian future where individuality and emotion are suppressed in favor of state control and conformity."
+  },
+  {
+    "title": "Wuthering Heights",
+    "author": "Emily Bront\u00eb",
+    "genre": "Gothic",
+    "year_published": 1847,
+    "ISBN": "9780141439556",
+    "image_url": "https://example.com/images/wutheringheights.jpg",
+    "copies_available": 2,
+    "description": "A tragic tale of passion and vengeance set on the bleak Yorkshire moors."
+  },
+  {
+    "title": "The Brothers Karamazov",
+    "author": "Fyodor Dostoevsky",
+    "genre": "Philosophical Fiction",
+    "year_published": 1880,
+    "ISBN": "9780374528379",
+    "image_url": "https://example.com/images/brotherskaramazov.jpg",
+    "copies_available": 2,
+    "description": "An exploration of faith, doubt, and free will in a Russian family torn apart by murder."
+  },
+  {
+    "title": "Don Quixote",
+    "author": "Miguel de Cervantes",
+    "genre": "Satire",
+    "year_published": 1605,
+    "ISBN": "9780060934347",
+    "image_url": "https://example.com/images/donquixote.jpg",
+    "copies_available": 3,
+    "description": "The comedic and philosophical adventures of a man who believes he is a knight-errant in a world that has forgotten chivalry."
+  },
+  {
+    "title": "Les Mis\u00e9rables",
+    "author": "Victor Hugo",
+    "genre": "Historical Fiction",
+    "year_published": 1862,
+    "ISBN": "9780451419439",
+    "image_url": "https://example.com/images/lesmiserables.jpg",
+    "copies_available": 4,
+    "description": "A sweeping tale of redemption, revolution, and the human spirit in 19th-century France."
+  },
+  {
+    "title": "Frankenstein",
+    "author": "Mary Shelley",
+    "genre": "Science Fiction",
+    "year_published": 1818,
+    "ISBN": "9780141439471",
+    "image_url": "https://example.com/images/frankenstein.jpg",
+    "copies_available": 5,
+    "description": "Victor Frankenstein creates life, only to face the horrifying consequences of his ambition."
+  },
+  {
+    "title": "Dracula",
+    "author": "Bram Stoker",
+    "genre": "Horror",
+    "year_published": 1897,
+    "ISBN": "9780141439846",
+    "image_url": "https://example.com/images/dracula.jpg",
+    "copies_available": 3,
+    "description": "The legendary vampire Count Dracula attempts to spread the undead curse in Victorian England."
+  },
+  {
+    "title": "Anna Karenina",
+    "author": "Leo Tolstoy",
+    "genre": "Literary Fiction",
+    "year_published": 1878,
+    "ISBN": "9780143035008",
+    "image_url": "https://example.com/images/annakarenina.jpg",
+    "copies_available": 2,
+    "description": "A tragic love story that unfolds amid the complexities of Russian high society."
+  }
+]
