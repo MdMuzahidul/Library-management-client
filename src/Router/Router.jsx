@@ -3,23 +3,25 @@ import AboutUs from "../Components/Pages/About/About";
 import Home from "../Components/Pages/Home/Home";
 import Blog from "../Components/Pages/Blog/Blog";
 import Dashboard from "../Components/Pages/Dashboard/Dashboard";
+import BookList from "../Components/BookList/BookList";
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    children: [
-      {
-        path: "/blog",
-        element: <Blog></Blog>,
-      },
-      {
-        path: "/about",
-        element: <AboutUs />,
-      },
-    ],
   },
-
+  {
+    path: "/books",
+    element: <BookList></BookList>,
+  },
+  {
+    path: "/blog",
+    element: <Blog></Blog>,
+  },
+  {
+    path: "/about",
+    element: <AboutUs />,
+  },
   {
     path: "/dashboard",
     element: (

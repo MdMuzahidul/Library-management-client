@@ -21,7 +21,7 @@ const Header = () => {
           <NavLink className={"hover:text-green-700"} to="/">
             Home
           </NavLink>
-          <NavLink className={"hover:text-green-700"} to="/dashboard">
+          <NavLink className={"hover:text-green-700"} to="/books">
             Books
           </NavLink>
           <NavLink className={"hover:text-green-700"} to="/blog">

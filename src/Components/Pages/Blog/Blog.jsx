@@ -1,10 +1,12 @@
 import books from "../../../assets/books.jpg";
+import Header from "../../Header/Header";
 
 const Blog = () => {
   return (
     <div>
+      <Header></Header>
       <section className="max-w-7xl mx-auto py-12 px-4 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {[1, 2, 3,4].map((post) => (
+        {[1, 2, 3, 4].map((post) => (
           <article
             key={post}
             className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow"
@@ -26,7 +28,7 @@ const Blog = () => {
                 href="#"
                 className="text-[#1A237E] font-semibold hover:underline"
               >
-               Read more →
+                Read more →
               </a>
             </div>
           </article>
