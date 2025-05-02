@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 const BookList = () => {
   const [booklist, setBooklist] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const booksPerPage = 10;
+  const booksPerPage = 15;
 
   useEffect(() => {
     const fetchBooks = async () => {
