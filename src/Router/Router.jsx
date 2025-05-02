@@ -4,6 +4,8 @@ import Home from "../Components/Pages/Home/Home";
 import Blog from "../Components/Pages/Blog/Blog";
 import Dashboard from "../Components/Pages/Dashboard/Dashboard";
 import BookList from "../Components/BookList/BookList";
+import Login from "../Components/Pages/Login/Login";
+import Registation from "../Components/Pages/Registation/Registation";
 
 const Router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ const Router = createBrowserRouter([
   {
     path: "/about",
     element: <AboutUs />,
+  },
+  {
+    path: "/login",
+    element: <Login></Login>,
+  },
+  {
+    path: "/registration",
+    element: <Registation></Registation>,
   },
   {
     path: "/dashboard",

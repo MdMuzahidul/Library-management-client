@@ -33,9 +33,11 @@ const Header = () => {
           <NavLink className={"hover:text-green-700"} to="/dashboard">
             Admin Dashboard
           </NavLink>
-          
           <NavLink className={"hover:text-green-700"} to="/about">
             About Us
+          </NavLink>
+          <NavLink className={"hover:text-green-700"} to="/login">
+            Login
           </NavLink>
         </div>
         <div className="flex items-center gap-4">
