@@ -12,7 +12,7 @@ const MostPopular = () => {
         </div>
       </div>
       <div className="mb-8">
-        <Marquee speed={30}>
+        <Marquee speed={30} pauseOnHover={true}>
           {[1, 2, 3, 4, 5, 6].map((_, index) => (
             <div key={index} className="mr-8">
               <BookCard />

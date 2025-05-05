@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../Header/Header";
+import { AppContext } from "../../Context/appContext";
 
 const BookList = () => {
-  const [booklist, setBooklist] = useState([]);
+  const { booklist, setBooklist } = useContext(AppContext);
   const [currentPage, setCurrentPage] = useState(1);
   const booksPerPage = 15;
 
@@ -31,6 +32,12 @@ const BookList = () => {
     setCurrentPage(pageNumber);
   };
 
+  const handlebooks = (id) => {
+    setBooklist(booklist.filter((book) => book.id !== id));
+    alert("Book added to your list successfully!");
+    console.log(booklist);
+  };
+
   return (
     <div>
       <Header></Header>
@@ -50,6 +57,9 @@ const BookList = () => {
                 }`}
               >
                 {book.available ? "Borrow" : "Unavailable"}
+              </button>
+              <button className="btn ml-4" onClick={() => handlebooks(book.id)}>
+                add Book
               </button>
             </div>
           ))}
