@@ -3,24 +3,23 @@ import Marquee from "react-fast-marquee";
 
 const Notice = () => {
   return (
-    <div className="flex items-center mx-auto bg-gray-300 my-3  shadow-lg">
-      <Marquee>
-        <div className="flex space-x-4 p-4">
-          <div className="flex items-center justify-center h-8 font-bold text-lg px-4">
-            Welcome to the Book Library! Explore our collection of books and
+    <div className="bg-blue-600 text-white py-3 shadow-lg">
+      <Marquee gradient={false} speed={50}>
+        <div className="flex space-x-8 px-4">
+          <div className="flex items-center justify-center font-semibold text-lg">
+            📚 Welcome to the Book Library! Explore our collection of books and
             enjoy reading.
           </div>
-          <div className="flex items-center justify-center h-8 font-bold text-lg px-4">
-            Hi, I am Md Muzahidul Islam. I am a web developer. I am learning
-            react js and node js.
+          <div className="flex items-center justify-center font-semibold text-lg">
+            🌟 Hi, I am Md Muzahidul Islam. I am a web developer learning
+            React.js and Node.js.
           </div>
-          <div className="flex items-center justify-center h-8 font-bold text-lg px-4">
-            Hi, I am Md Muzahidul Islam. I am a web developer. I am learning
-            react js and node js.
+          <div className="flex items-center justify-center font-semibold text-lg">
+            🚀 Discover new books and expand your knowledge with our curated
+            library.
           </div>
-          <div className="flex items-center justify-center h-8 font-bold text-lg px-4">
-            Hi, I am Md Muzahidul Islam. I am a web developer. I am learning
-            react js and node js.
+          <div className="flex items-center justify-center font-semibold text-lg">
+            📖 Join our community of book lovers and share your favorite reads!
           </div>
         </div>
       </Marquee>
