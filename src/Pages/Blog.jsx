@@ -1,10 +1,8 @@
-import books from "../../../assets/books.jpg";
-import Header from "../../Header/Header";
+import books from "../assets/books.jpg";
 
 const Blog = () => {
   return (
     <div>
-      <Header></Header>
       <section className="max-w-7xl mx-auto py-12 px-4 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {[1, 2, 3, 4].map((post) => (
           <article

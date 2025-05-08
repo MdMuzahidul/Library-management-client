@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import image from "../../../assets/Book1.jpg";
+import image from "../assets/Book1.jpg";
 
-const BookDetailCard = () => {
+const BooksDetails = () => {
   const [isBorrowed, setIsBorrowed] = useState(false);
   const [showReviewModal, setShowReviewModal] = useState(false);
 
@@ -92,4 +92,4 @@ const BookDetailCard = () => {
   );
 };
 
-export default BookDetailCard;
+export default BooksDetails;

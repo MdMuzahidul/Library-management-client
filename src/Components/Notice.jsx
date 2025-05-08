@@ -1,7 +1,7 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 
-const Marque = () => {
+const Notice = () => {
   return (
     <div className="flex items-center mx-auto bg-gray-300 my-3  shadow-lg">
       <Marquee>
@@ -27,4 +27,5 @@ const Marque = () => {
     </div>
   );
 };
-export default Marque;
+
+export default Notice;

@@ -1,5 +1,6 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
+import BookCard from "../Books/BookCard";
 
 const ForYou = () => {
   return (
@@ -14,7 +15,7 @@ const ForYou = () => {
         <Marquee speed={30} pauseOnHover={true}>
           {[1, 2, 3, 4, 5, 6].map((_, index) => (
             <div key={index} className="mr-8">
-              hi
+              <BookCard></BookCard>
             </div>
           ))}
         </Marquee>
