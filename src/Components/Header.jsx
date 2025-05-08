@@ -1,6 +1,7 @@
+import React from "react";
+import logo from "../assets/Logo.jpg"
+import profile from "../assets/Profile.jpg"
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/Logo.jpg";
-import profile from "../../assets/Profile.jpg";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 
 const Header = () => {

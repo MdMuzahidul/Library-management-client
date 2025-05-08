@@ -86,7 +86,7 @@ const Registation = () => {
         </form>
         <div className="text-center mt-4">
           <p className="text-sm text-gray-600">
-             have an account?{" "}
+            have an account?{" "}
             <a href="/login" className="text-blue-600 hover:underline">
               Login
             </a>
