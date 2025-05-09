@@ -1,17 +1,57 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../UseContext/AuthProvider";
+import { useNavigate, Link } from "react-router-dom";
 
 const Registation = () => {
-  // const handleChange = (e) => {
-  //     setFormData({ ...formData, [e.target.name]: e.target.value });
-  //   };
+  const { createNewUser, updateUserProfile } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setLoading(true);
+    const formData = new FormData(event.target);
+    const name = formData.get("name");
+    const department = formData.get("department");
+    const studentId = formData.get("studentId");
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    const userData = {
+      name,
+      department,
+      studentId,
+      email,
+      password,
+    };
+    console.log(userData);
+
+    createNewUser(email, password)
+      .then((result) => {
+        return updateUserProfile({ displayName: name });
+      })
+      .then(() => {
+        setError("");
+        alert("Registration successful!");
+        navigate("/dashboard");
+      })
+      .catch((error) => {
+        setError(error.message);
+        setLoading(false);
+      });
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-md">
         <h2 className="text-2xl font-bold text-center mb-6">
           Student Registration
         </h2>
-        {/* onSubmit={handleSubmit} */}
-        <form className="space-y-4">
+
+        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Full Name
@@ -20,7 +60,6 @@ const Registation = () => {
               type="text"
               name="name"
               required
-              //   onChange={handleChange}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -33,7 +72,6 @@ const Registation = () => {
               type="text"
               name="department"
               required
-              //   onChange={handleChange}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -46,7 +84,6 @@ const Registation = () => {
               type="text"
               name="studentId"
               required
-              //   onChange={handleChange}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -59,7 +96,6 @@ const Registation = () => {
               type="email"
               name="email"
               required
-              //   onChange={handleChange}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -72,7 +108,6 @@ const Registation = () => {
               type="password"
               name="password"
               required
-              //   onChange={handleChange}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -80,16 +115,17 @@ const Registation = () => {
           <button
             type="submit"
             className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
+            disabled={loading}
           >
-            Register
+            {loading ? "Registering..." : "Register"}
           </button>
         </form>
         <div className="text-center mt-4">
           <p className="text-sm text-gray-600">
-            have an account?{" "}
-            <a href="/login" className="text-blue-600 hover:underline">
+            Have an account?{" "}
+            <Link to="/login" className="text-blue-600 hover:underline">
               Login
-            </a>
+            </Link>
           </p>
         </div>
       </div>

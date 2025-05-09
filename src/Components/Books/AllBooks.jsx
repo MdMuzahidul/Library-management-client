@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const BookCard = ({ title, author, cover }) => (
-  <div className="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow border border-gray-200 overflow-hidden transform hover:scale-105 transition-transform duration-300">
+  <div className="bg-white rounded-lg shadow-lg hover:shadow-2xl border border-gray-200 overflow-hidden transform hover:scale-105 transition-transform duration-300">
     {/* Book Cover */}
     <div className="w-full h-64">
       <img
@@ -26,9 +26,237 @@ const books = [
     cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
   },
   {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Bengali Literature",
+    author: "Humayun Ahmed",
+    category: "Literature",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
     title: "General Chemistry",
     author: "Raymond Chang",
     category: "Science",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "General Chemistry",
+    author: "Raymond Chang",
+    category: "Science",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "General Chemistry",
+    author: "Raymond Chang",
+    category: "Science",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "General Chemistry",
+    author: "Raymond Chang",
+    category: "Science",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "General Chemistry",
+    author: "Raymond Chang",
+    category: "Science",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "General Chemistry",
+    author: "Raymond Chang",
+    category: "Science",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "General Chemistry",
+    author: "Raymond Chang",
+    category: "Science",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "General Chemistry",
+    author: "Raymond Chang",
+    category: "Science",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "General Chemistry",
+    author: "Raymond Chang",
+    category: "Science",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "General Chemistry",
+    author: "Raymond Chang",
+    category: "Science",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "General Chemistry",
+    author: "Raymond Chang",
+    category: "Science",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "General Chemistry",
+    author: "Raymond Chang",
+    category: "Science",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "General Chemistry",
+    author: "Raymond Chang",
+    category: "Science",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "General Chemistry",
+    author: "Raymond Chang",
+    category: "Science",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Introduction to Algorithms",
+    author: "Thomas H. Cormen",
+    category: "Technology",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Introduction to Algorithms",
+    author: "Thomas H. Cormen",
+    category: "Technology",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Introduction to Algorithms",
+    author: "Thomas H. Cormen",
+    category: "Technology",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Introduction to Algorithms",
+    author: "Thomas H. Cormen",
+    category: "Technology",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Introduction to Algorithms",
+    author: "Thomas H. Cormen",
+    category: "Technology",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Introduction to Algorithms",
+    author: "Thomas H. Cormen",
+    category: "Technology",
     cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
   },
   {
@@ -44,9 +272,165 @@ const books = [
     cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
   },
   {
+    title: "History of Islam",
+    author: "Maulana Akram",
+    category: "Religion",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "History of Islam",
+    author: "Maulana Akram",
+    category: "Religion",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "History of Islam",
+    author: "Maulana Akram",
+    category: "Religion",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "History of Islam",
+    author: "Maulana Akram",
+    category: "Religion",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "History of Islam",
+    author: "Maulana Akram",
+    category: "Religion",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "History of Islam",
+    author: "Maulana Akram",
+    category: "Religion",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
     title: "Microeconomics",
     author: "Paul Krugman",
     category: "Economics",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Microeconomics",
+    author: "Paul Krugman",
+    category: "Economics",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Microeconomics",
+    author: "Paul Krugman",
+    category: "Economics",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Microeconomics",
+    author: "Paul Krugman",
+    category: "Economics",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Microeconomics",
+    author: "Paul Krugman",
+    category: "Economics",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Microeconomics",
+    author: "Paul Krugman",
+    category: "Economics",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Microeconomics",
+    author: "Paul Krugman",
+    category: "Economics",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Microeconomics",
+    author: "Paul Krugman",
+    category: "Economics",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Microeconomics",
+    author: "Paul Krugman",
+    category: "Economics",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "Microeconomics",
+    author: "Paul Krugman",
+    category: "Economics",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "The Psychology of Learning",
+    author: "B.F. Skinner",
+    category: "Psychology",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "The Psychology of Learning",
+    author: "B.F. Skinner",
+    category: "Psychology",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "The Psychology of Learning",
+    author: "B.F. Skinner",
+    category: "Psychology",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "The Psychology of Learning",
+    author: "B.F. Skinner",
+    category: "Psychology",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "The Psychology of Learning",
+    author: "B.F. Skinner",
+    category: "Psychology",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "The Psychology of Learning",
+    author: "B.F. Skinner",
+    category: "Psychology",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "The Psychology of Learning",
+    author: "B.F. Skinner",
+    category: "Psychology",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "The Psychology of Learning",
+    author: "B.F. Skinner",
+    category: "Psychology",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "The Psychology of Learning",
+    author: "B.F. Skinner",
+    category: "Psychology",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "The Psychology of Learning",
+    author: "B.F. Skinner",
+    category: "Psychology",
+    cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
+  },
+  {
+    title: "The Psychology of Learning",
+    author: "B.F. Skinner",
+    category: "Psychology",
     cover: "https://i.ibb.co.com/Zzb3pdmj/Book1.jpg",
   },
   {
@@ -91,15 +475,18 @@ export default function AllBooks() {
                 </h3>
                 <button
                   onClick={() => handleSeeAll(category)}
-                  className="text-blue-600 hover:text-blue-800 font-semibold"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition-all duration-300"
                 >
                   {expandedCategory === category
                     ? "Show All Categories"
                     : "See More"}
                 </button>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                {groupedBooks[category].map((book, index) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                {(expandedCategory === category
+                  ? groupedBooks[category]
+                  : groupedBooks[category].slice(0, 5)
+                ).map((book, index) => (
                   <BookCard key={index} {...book} />
                 ))}
               </div>
