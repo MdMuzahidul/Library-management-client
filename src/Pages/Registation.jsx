@@ -29,12 +29,12 @@ const Registation = () => {
 
     createNewUser(email, password)
       .then((result) => {
-        return updateUserProfile({ displayName: name });
+        return updateUserProfile(result);
       })
       .then(() => {
         setError("");
         alert("Registration successful!");
-        navigate("/dashboard");
+        navigate("/");
       })
       .catch((error) => {
         setError(error.message);
