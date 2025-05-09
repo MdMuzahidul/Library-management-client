@@ -6,7 +6,8 @@ import Registation from "../Pages/Registation.jsx";
 import ErrorPage from "../Pages/ErrorPage.jsx";
 import AboutUs from "../Pages/AboutUS.jsx";
 import Blog from "../Pages/Blog.jsx";
-import BooksDetails from "../Pages/BooksDetails.jsx";
+import AboutLibrary from "../Components/AboutLibrary.jsx";
+import AllBooks from "../Components/Books/AllBooks.jsx";
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -19,7 +20,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/books",
-        element: <BooksDetails></BooksDetails>,
+        element: <AllBooks></AllBooks>,
       },
       { path: "/blog", element: <Blog></Blog> },
       {
@@ -33,6 +34,10 @@ const Router = createBrowserRouter([
       {
         path: "/about",
         element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "/library",
+        element: <AboutLibrary></AboutLibrary>,
       },
     ],
   },

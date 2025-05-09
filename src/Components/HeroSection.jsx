@@ -1,5 +1,6 @@
 import React from "react";
 import heroimg from "../assets/banar.jpg";
+import { NavLink } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -17,9 +18,11 @@ const HeroSection = () => {
           <button className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition">
             Explore Now
           </button>
-          <button className="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg shadow-lg hover:bg-gray-300 transition">
-            Learn More
-          </button>
+          <NavLink to="/library">
+            <button className="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg shadow-lg hover:bg-gray-300 transition">
+              Learn More
+            </button>
+          </NavLink>
         </div>
       </div>
 

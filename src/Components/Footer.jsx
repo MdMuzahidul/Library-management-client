@@ -54,7 +54,6 @@ const Footer = () => {
 
       {/* Social Media Links */}
       <div className="mt-8 text-center">
-        <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
         <div className="flex justify-center space-x-6">
           <a
             href="#"
