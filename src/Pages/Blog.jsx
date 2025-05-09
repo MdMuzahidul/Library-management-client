@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import books from "../assets/books.jpg";
 
 const Blog = () => {
@@ -33,12 +34,12 @@ const Blog = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
                 nec odio. Praesent libero. Sed cursus ante dapibus diam.
               </p>
-              <a
-                href="#"
+              <Link
+                to="/blog/details"
                 className="text-blue-600 font-semibold hover:underline"
               >
                 Read more →
-              </a>
+              </Link>
             </div>
           </article>
         ))}
