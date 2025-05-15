@@ -3,7 +3,7 @@ import { AuthContext } from "../UseContext/AuthProvider";
 import { useNavigate, Link } from "react-router-dom";
 
 const Registation = () => {
-  const { createNewUser, updateUserProfile } = useContext(AuthContext);
+  const { createNewUser } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -18,23 +18,35 @@ const Registation = () => {
     const email = formData.get("email");
     const password = formData.get("password");
 
-    const userData = {
-      name,
-      department,
-      studentId,
-      email,
-      password,
-    };
-    console.log(userData);
-
     createNewUser(email, password)
       .then((result) => {
-        return updateUserProfile(result);
-      })
-      .then(() => {
-        setError("");
-        alert("Registration successful!");
-        navigate("/");
+        const user = result.user;
+        console.log(user);
+        const userData = {
+          name,
+          department,
+          studentId,
+          email,
+          password,
+          role: "student",
+        };  
+        // Send user data to the backend
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        })
+          .then(() => {
+            setError("");
+            alert("Registration successful!");
+            navigate("/");
+          })
+          .catch((error) => {
+            setError(error.message);
+            setLoading(false);
+          });
       })
       .catch((error) => {
         setError(error.message);
