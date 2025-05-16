@@ -29,7 +29,7 @@ const Registation = () => {
           email,
           password,
           role: "student",
-        };  
+        };
         // Send user data to the backend
         fetch("http://localhost:5000/users", {
           method: "POST",
@@ -38,14 +38,12 @@ const Registation = () => {
           },
           body: JSON.stringify(userData),
         })
-          .then(() => {
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
             setError("");
             alert("Registration successful!");
             navigate("/");
-          })
-          .catch((error) => {
-            setError(error.message);
-            setLoading(false);
           });
       })
       .catch((error) => {
@@ -123,14 +121,12 @@ const Registation = () => {
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-
-          <button
+          <input
             type="submit"
+            value={loading ? "Registering..." : "Register"}
             className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
             disabled={loading}
-          >
-            {loading ? "Registering..." : "Register"}
-          </button>
+          />
         </form>
         <div className="text-center mt-4">
           <p className="text-sm text-gray-600">
