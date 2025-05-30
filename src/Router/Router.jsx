@@ -9,6 +9,8 @@ import Blog from "../Pages/Blog.jsx";
 import AboutLibrary from "../Components/AboutLibrary.jsx";
 import AllBooks from "../Components/Books/AllBooks.jsx";
 import BlogDetails from "../Pages/BlogDetails.jsx";
+import AddBooks from "../Pages/AddBooks.jsx";
+import BooksDetails from "../Pages/BooksDetails/BooksDetails.jsx";
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -22,9 +24,21 @@ const Router = createBrowserRouter([
       {
         path: "/books",
         element: <AllBooks></AllBooks>,
-        loader:()=>{
-          return fetch("http://localhost:5000/books");}
+      },
+      {
+        path: "books/details/:id",
+        element: <BooksDetails></BooksDetails>,
+        loader: async ({ params }) => {
+          const res = await fetch(`http://localhost:5000/books/${params.id}`);
+          if (!res.ok) {
+            throw new Error("Book not found");
+          }
+          return res.json();
         },
+      },
+      {
+        path: "books/addbooks",
+        element: <AddBooks></AddBooks>,
       },
       { path: "/blog", element: <Blog></Blog> },
       {

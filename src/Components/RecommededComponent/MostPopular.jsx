@@ -22,7 +22,7 @@ const MostPopular = () => {
               key={index}
               className="mr-6 my-4 bg-white rounded-xl shadow-lg p-4 transition-transform transform hover:scale-105"
             >
-              <BookCard />
+              {/* <BookCard /> */}
             </div>
           ))}
         </Marquee>

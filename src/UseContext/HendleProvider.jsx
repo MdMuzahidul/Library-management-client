@@ -4,10 +4,10 @@ import { createContext, useState } from "react";
 export const HendleContext = createContext({});
 
 export const HendleProvider = ({ children }) => {
-  const [booklist, setBooklist] = useState([]);
+  const [books, setBooks] = useState([]);
   const appContext = {
-    booklist,
-    setBooklist,
+    books,
+    setBooks,
   };
   return (
     <HendleContext.Provider value={appContext}>
