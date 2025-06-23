@@ -44,7 +44,7 @@ const Router = createBrowserRouter([
       { path: "/blog", element: <Blog></Blog> },
       {
         path: "/pending-requests",
-        element: <PendingRequest></PendingRequest>,
+        element: <PendingRequest></PendingRequest>
       },
       {
         path: "/blog/details",

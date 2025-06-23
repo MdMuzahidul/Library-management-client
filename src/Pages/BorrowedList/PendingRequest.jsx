@@ -1,59 +1,43 @@
-import React, { useEffect, useState, useContext } from "react";
-import { AuthProvider } from "../../UseContext/AuthProvider";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../UseContext/AuthProvider";
+import PendingRequestCard from "./PendingRequestCard";
+
 
 const PendingRequest = () => {
-  const { user } = useContext(AuthProvider);
   const [pendingRequests, setPendingRequests] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-
+  const { user } = useContext(AuthContext);
+  console.log(user?.email)
+  // Fetch pending requests from the server
   useEffect(() => {
-    const fetchPending = async () => {
-      setLoading(true);
-      setError("");
-      try {
-        const res = await fetch(
-          `http://localhost:5000/borrowed?email=${user?.email}`
-        );
-        if (!res.ok) throw new Error("Failed to fetch pending requests");
-        const data = await res.json();
-        setPendingRequests(data || []);
-      } catch {
-        setError("Could not load pending requests.");
-      } finally {
-        setLoading(false);
-      }
-    };
-    if (user?.email) fetchPending();
-  }, [user]);
-
-  if (loading) return <div>Loading pending requests...</div>;
-  if (error) return <div className="text-red-600">{error}</div>;
+    fetch(`http://localhost:5000/borrowed/pending/${user?.email}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setPendingRequests(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching pending requests:", error);
+      });
+  }, [user?.email]);
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Pending Borrow Requests</h2>
-      {pendingRequests.length === 0 ? (
-        <p>No pending requests found.</p>
-      ) : (
-        <ul className="space-y-4">
-          {pendingRequests.map((req) => (
-            <li
-              key={req._id}
-              className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded shadow-sm"
-            >
-              <div className="font-semibold">{req.bookTitle}</div>
-              <div className="text-sm text-gray-600">
-                Requested on:{" "}
-                {new Date(req.borrowDate).toLocaleDateString()}
-              </div>
-              <div className="text-xs text-yellow-700 mt-1">
-                {/* Status: {req.status} */}
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 py-10 px-2 md:px-0 flex flex-col items-center">
+      <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-8">
+        <h3 className="text-2xl font-bold text-green-700 mb-6 text-center">
+          Pending Requests <span className="ml-2 text-2xl text-gray-500">({pendingRequests.length})</span>
+        </h3>
+        {pendingRequests.length > 0 ? (
+          <div className="space-y-4">
+            {pendingRequests.map((req) => (
+              <PendingRequestCard key={req._id || req.id} request={req} />
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center py-10">
+            <img src="/src/assets/empty.png" alt="No pending" className="w-32 h-32 opacity-60 mb-4" />
+            <p className="text-gray-500 text-lg">No pending requests found.</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../UseContext/AuthProvider";
 import { useNavigate, Link } from "react-router-dom";
+import { HendleContext } from "../UseContext/HendleProvider";
 
 const Registation = () => {
   const { createNewUser } = useContext(AuthContext);
+  const { setUserData } = useContext(HendleContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -30,6 +32,8 @@ const Registation = () => {
           password,
           role: "student",
         };
+        localStorage.setItem("user", JSON.stringify(userData));
+        setLoading(false);
         // Send user data to the backend
         fetch("http://localhost:5000/users", {
           method: "POST",
@@ -41,6 +45,7 @@ const Registation = () => {
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
+            setUserData(userData);
             setError("");
             alert("Registration successful!");
             navigate("/");

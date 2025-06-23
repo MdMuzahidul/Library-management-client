@@ -9,6 +9,8 @@ const BooksDetails = () => {
   const { user } = useContext(AuthContext);
   const [borrowed, setBorrowed] = useState(false);
   const [error, setError] = useState("");
+  const userData = JSON.parse(localStorage.getItem("user")) || null;
+  console.log("User Data:", userData);
 
   // Check if the user has already borrowed this book
   useEffect(() => {
@@ -42,6 +44,10 @@ const BooksDetails = () => {
         email: user.email,
         bookId: singleBook._id || singleBook.id,
         bookTitle: singleBook.title,
+        borrowerName: userData.name || user.name,
+        department: userData.department || "Unknown",
+        studentId: userData.studentId || "Unknown",
+        status: "pending",
         borrowDate: new Date().toISOString(),
       };
       const res = await fetch("http://localhost:5000/borrowed", {
@@ -56,6 +62,7 @@ const BooksDetails = () => {
       setError("The books is already borrowed by you ");
     }
   };
+  console.log(user?.name);
 
   const {
     coverImg,
