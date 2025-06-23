@@ -15,8 +15,6 @@ const Header = () => {
     logOut();
   };
 
-  console.log(user);
-
   return (
     <div className="bg-gradient-to-r from-blue-800 to-indigo-900 text-white shadow-md">
       <div className="flex justify-between items-center w-11/12 mx-auto py-4">

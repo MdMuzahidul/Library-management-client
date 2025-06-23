@@ -1,9 +1,62 @@
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import BookCard from "../../Components/Books/BookCard";
+import { AuthContext } from "../../UseContext/AuthProvider";
 
 const BooksDetails = () => {
   const singleBook = useLoaderData();
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+  const [borrowed, setBorrowed] = useState(false);
+  const [error, setError] = useState("");
+
+  // Check if the user has already borrowed this book
+  useEffect(() => {
+    const checkBorrowed = async () => {
+      if (!user) return;
+      try {
+        const res = await fetch(
+          `http://localhost:5000/borrowed?bookId=${
+            singleBook._id || singleBook.id
+          }&email=${user.email}`
+        );
+        const data = await res.json();
+        if (data?.borrowed) setBorrowed(true);
+      } catch (e) {
+        // Optionally handle error
+        console.error("Error checking borrowed status:", e);
+        setError("Failed to check borrowed status.");
+      }
+    };
+    checkBorrowed();
+  }, [singleBook, user]);
+
+  const handleBorrow = async () => {
+    setError("");
+    if (!user) {
+      setError("You must be logged in to borrow a book.");
+      return;
+    }
+    try {
+      const borrowData = {
+        email: user.email,
+        bookId: singleBook._id || singleBook.id,
+        bookTitle: singleBook.title,
+        borrowDate: new Date().toISOString(),
+      };
+      const res = await fetch("http://localhost:5000/borrowed", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(borrowData),
+      });
+      if (!res.ok) throw new Error("Failed to borrow book");
+      setBorrowed(true);
+      setTimeout(() => setBorrowed(false), 2000);
+    } catch {
+      setError("The books is already borrowed by you ");
+    }
+  };
+
   const {
     coverImg,
     title,
@@ -16,17 +69,23 @@ const BooksDetails = () => {
     rating,
     likedPercent,
   } = singleBook;
-  console.log(genres);
+
   if (!singleBook) return <p>Book not found</p>;
   return (
-    <div className="flex bg-gray-50 min-h-screen w-11/12 mx-auto">
-      <div className="max-w-4xl mx-auto py-8 space-y-6">
+    <div className="flex flex-col md:flex-row bg-gray-50 min-h-screen w-full md:w-11/12 mx-auto">
+      <div className="w-full md:max-w-4xl mx-auto py-8 space-y-6">
+        <button
+          className="mb-4 px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition w-fit"
+          onClick={() => navigate(-1)}
+        >
+          ← Back
+        </button>
         {/* Header Section */}
         <div className="flex flex-col md:flex-row gap-6">
           <img
             src={coverImg}
-            alt="We Are Voulhire"
-            className="w-full md:w-60 rounded shadow"
+            alt={title}
+            className="w-full max-w-xs md:w-60 rounded shadow mx-auto md:mx-0"
           />
           <div className="flex-1 space-y-2">
             <h1 className="text-3xl font-bold">{title}</h1>
@@ -56,17 +115,22 @@ const BooksDetails = () => {
 
             {/* Buttons */}
             <div className="flex gap-4 mt-4">
-              <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
-                Free Download
-              </button>
-              <button className="border border-gray-400 text-gray-700 px-4 py-2 rounded hover:bg-gray-100 transition">
-                Read Online
+              <button
+                className={`bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition ${
+                  borrowed ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+                onClick={handleBorrow}
+                disabled={borrowed}
+              >
+                {borrowed ? "Already Borrowed" : "BORROW BOOK"}
               </button>
             </div>
-
-            <p className="text-xs text-gray-500 mt-1">
-              Available in the library
-            </p>
+            {borrowed && (
+              <p className="text-green-600 text-sm mt-2">
+                You have already borrowed this book.
+              </p>
+            )}
+            {error && <p className="text-red-600 text-sm mt-2">{error}</p>}
           </div>
         </div>
 
@@ -101,8 +165,9 @@ const BooksDetails = () => {
           <p>{description || "No description available."}</p>
         </div>
       </div>
+
       {/* Sidebar for Recommended Books */}
-      <aside className="w-80 min-w-72 max-w-80 p-6 bg-white shadow-lg  ml-auto flex flex-col h-fit">
+      <aside className="w-full md:w-80 min-w-0 max-w-full md:max-w-80 p-4 md:p-6 bg-white shadow-lg rounded-lg mt-8 md:mt-20 ml-0 md:ml-auto flex flex-col items-center h-fit self-start">
         <h3 className="text-xl font-bold mb-4 text-green-700">
           Recommended Books
         </h3>

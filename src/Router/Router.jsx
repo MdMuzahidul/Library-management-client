@@ -11,6 +11,7 @@ import AllBooks from "../Components/Books/AllBooks.jsx";
 import BlogDetails from "../Pages/BlogDetails.jsx";
 import AddBooks from "../Pages/AddBooks.jsx";
 import BooksDetails from "../Pages/BooksDetails/BooksDetails.jsx";
+import PendingRequest from "../Pages/BorrowedList/PendingRequest.jsx";
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +42,10 @@ const Router = createBrowserRouter([
         element: <AddBooks></AddBooks>,
       },
       { path: "/blog", element: <Blog></Blog> },
+      {
+        path: "/pending-requests",
+        element: <PendingRequest></PendingRequest>,
+      },
       {
         path: "/blog/details",
         element: <BlogDetails></BlogDetails>,
