@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PendingCard from "../Components/PendingCard";
 
 const PendingRequestOfAdmin = () => {
   const [requests, setRequests] = useState([]);
@@ -21,39 +22,7 @@ const PendingRequestOfAdmin = () => {
         <ul className="divide-y divide-gray-200">
           {requests.length > 0 ? (
             requests.map((request) => (
-              <li
-                key={request.id || request._id}
-                className="flex flex-col md:flex-row md:items-center gap-2 py-6 px-2 hover:bg-green-50 rounded-lg transition"
-              >
-                <div className="flex-1">
-                  <p className="font-semibold text-lg text-green-800">
-                    {request.bookTitle}
-                  </p>
-                  <p className="text-gray-600 text-sm">
-                    User: {request.email}
-                  </p>
-                  <p className="text-gray-600 text-sm">
-                    Department: {request.department || "N/A"}
-                  </p>
-                  <p className="text-gray-600 text-sm">
-                    Student Id: {request.studentId || "N/A"}
-                  </p>
-                  {request.borrowDate && (
-                    <p className="text-gray-400 text-xs mt-1">
-                      Requested on:{" "}
-                      {new Date(request.borrowDate).toLocaleDateString()}
-                    </p>
-                  )}
-                </div>
-                <div className="flex gap-2 mt-2 md:mt-0">
-                  <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition text-xs font-semibold">
-                    Approve
-                  </button>
-                  <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition text-xs font-semibold">
-                    Reject
-                  </button>
-                </div>
-              </li>
+              <PendingCard key={request.id || request._id} request={request} />
             ))
           ) : (
             <li className="text-gray-500 py-8 text-center">

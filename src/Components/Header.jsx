@@ -87,6 +87,13 @@ const Header = () => {
           >
             Pending Requests
           </NavLink>
+          <NavLink
+            className="hover:text-yellow-400 transition"
+            to="/approved-list"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Approved List
+          </NavLink>
         </div>
 
         {/* Search and Profile Section */}
