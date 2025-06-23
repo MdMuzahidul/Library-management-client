@@ -73,6 +73,20 @@ const Header = () => {
           >
             About Us
           </NavLink>
+          <NavLink
+            className="hover:text-yellow-400 transition"
+            to="/allusers"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            All Users
+          </NavLink>
+          <NavLink
+            className="hover:text-yellow-400 transition"
+            to="/pending-requests-of-admin"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Pending Requests
+          </NavLink>
         </div>
 
         {/* Search and Profile Section */}
