@@ -15,6 +15,7 @@ import PendingRequest from "../Pages/BorrowedList/PendingRequest.jsx";
 import Allusers from "../Pages/AllUsers/Allusers.jsx";
 import PendingRequestOfAdmin from "../Pages/PendingRequestOfAdmin.jsx";
 import ApprovedList from "../Pages/ApproveList/ApprovedList.jsx";
+import UserApprovedList from "../Pages/UserApprovedList/UserApprovedList.jsx";
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -48,6 +49,10 @@ const Router = createBrowserRouter([
       {
         path: "/pending-requests",
         element: <PendingRequest></PendingRequest>,
+      },
+      {
+        path: "/borrowed-books",
+        element: <UserApprovedList></UserApprovedList>,
       },
       {
         path: "/blog/details",
