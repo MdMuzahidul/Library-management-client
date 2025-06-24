@@ -16,6 +16,7 @@ import Allusers from "../Pages/AllUsers/Allusers.jsx";
 import PendingRequestOfAdmin from "../Pages/PendingRequestOfAdmin.jsx";
 import ApprovedList from "../Pages/ApproveList/ApprovedList.jsx";
 import UserApprovedList from "../Pages/UserApprovedList/UserApprovedList.jsx";
+import WriteBlog from "../Pages/WriteBlog.jsx";
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -55,8 +56,19 @@ const Router = createBrowserRouter([
         element: <UserApprovedList></UserApprovedList>,
       },
       {
-        path: "/blog/details",
+        path: "/writeblog",
+        element: <WriteBlog></WriteBlog>,
+      },
+      {
+        path: "/blog/details/:id",
         element: <BlogDetails></BlogDetails>,
+        loader: async ({ params }) => {
+          const res = await fetch(`http://localhost:5000/blogs/${params.id}`);
+          if (!res.ok) {
+            throw new Error("Blog post not found");
+          }
+          return res.json();
+        },
       },
       {
         path: "/login",

@@ -7,7 +7,7 @@ const Footer = () => {
         {/* Library Info */}
         <div>
           <h2 className="text-2xl font-bold text-white mb-4">
-            📚 Smart Library
+            📚 Amor 21 Library
           </h2>
           <p className="text-sm leading-relaxed">
             A digital solution to manage your library efficiently. Borrow,
@@ -46,9 +46,9 @@ const Footer = () => {
         {/* Contact Info */}
         <div>
           <h3 className="text-lg font-semibold text-white mb-4">Contact</h3>
-          <p className="text-sm mb-2">📍 123 Library Lane, Booktown</p>
-          <p className="text-sm mb-2">📧 info@smartlibrary.com</p>
-          <p className="text-sm">📞 +880 1234-567890</p>
+          <p className="text-sm mb-2">📍 123 Library Lane, BSMRSTU</p>
+          <p className="text-sm mb-2">📧 muzahid.19cse063@bsmrstu.edu.bd</p>
+          <p className="text-sm">📞 +880 1521-551823</p>
         </div>
       </div>
 
@@ -88,7 +88,7 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="text-center text-sm text-gray-500 mt-8 border-t border-gray-700 pt-4">
-        © {new Date().getFullYear()} Smart Library. All rights reserved.
+        © {new Date().getFullYear()} Amor 21 Library. All rights reserved.
       </div>
     </footer>
   );
