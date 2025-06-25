@@ -1,21 +1,23 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
-import BookCard from "../../Components/Books/BookCard";
 import { AuthContext } from "../../UseContext/AuthProvider";
+import { HendleContext } from "../../UseContext/HendleProvider";
 
 const BooksDetails = () => {
   const singleBook = useLoaderData();
   const navigate = useNavigate();
+
   const { user } = useContext(AuthContext);
+  const { currentUser } = useContext(HendleContext);
+  
+
   const [borrowed, setBorrowed] = useState(false);
   const [error, setError] = useState("");
-  const userData = JSON.parse(localStorage.getItem("user")) || null;
-  console.log("User Data:", userData);
 
   // Check if the user has already borrowed this book
   useEffect(() => {
+    if (!user) return; // Prevent running if user is not loaded
     const checkBorrowed = async () => {
-      if (!user) return;
       try {
         const res = await fetch(
           `http://localhost:5000/borrowed?bookId=${
@@ -44,9 +46,9 @@ const BooksDetails = () => {
         email: user.email,
         bookId: singleBook._id || singleBook.id,
         bookTitle: singleBook.title,
-        borrowerName: userData.name || user.name,
-        department: userData.department || "Unknown",
-        studentId: userData.studentId || "Unknown",
+        borrowerName: currentUser.name,
+        department: currentUser.department || "Unknown",
+        studentId: currentUser.studentId || "Unknown",
         status: "pending",
         borrowDate: new Date().toISOString(),
       };
@@ -62,7 +64,6 @@ const BooksDetails = () => {
       setError("The books is already borrowed by you ");
     }
   };
-  console.log(user?.name);
 
   const {
     coverImg,
@@ -78,6 +79,10 @@ const BooksDetails = () => {
   } = singleBook;
 
   if (!singleBook) return <p>Book not found</p>;
+  // If user is not loaded yet, show loading instead of rendering or redirecting
+  if (user === undefined) {
+    return <div className="text-center py-10">Loading...</div>;
+  }
   return (
     <div className="flex flex-col md:flex-row bg-gray-50 min-h-screen w-full md:w-11/12 mx-auto">
       <div className="w-full md:max-w-4xl mx-auto py-8 space-y-6">
@@ -121,9 +126,13 @@ const BooksDetails = () => {
                   borrowed ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 onClick={handleBorrow}
-                disabled={borrowed}
+                disabled={borrowed || currentUser?.role !== "student"}
               >
-                {borrowed ? "Already Borrowed" : "BORROW BOOK"}
+                {borrowed
+                  ? "Already Borrowed"
+                  : currentUser?.role !== "student"
+                  ? "Only students can borrow"
+                  : "BORROW BOOK"}
               </button>
             </div>
             {borrowed && (
@@ -190,7 +199,7 @@ const BooksDetails = () => {
             <span className="font-semibold text-blue-700">{title}</span>?
             Inspire others by writing a blog post!
           </p>
-          <Link to='/writeblog'>
+          <Link to="/writeblog">
             <button className="mt-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-semibold shadow-md transition flex items-center gap-2 text-base">
               <svg
                 className="w-5 h-5"

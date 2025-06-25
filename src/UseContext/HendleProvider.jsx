@@ -13,11 +13,14 @@ export const HendleProvider = ({ children }) => {
     password: "",
     role: "student",
   });
+  const [currentUser, setCurrentUser] = useState(null);
   const appContext = {
     books,
     setBooks,
     userData,
     setUserData,
+    currentUser,
+    setCurrentUser,
   };
   return (
     <HendleContext.Provider value={appContext}>

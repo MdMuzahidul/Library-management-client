@@ -68,8 +68,6 @@ const WriteBlog = () => {
       setError("Failed to submit blog. Please try again.");
     }
   };
-  console.log("Form Data:", form);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center py-10 px-2">
       <div className="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-2xl">

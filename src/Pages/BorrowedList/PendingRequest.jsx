@@ -6,7 +6,6 @@ import PendingRequestCard from "./PendingRequestCard";
 const PendingRequest = () => {
   const [pendingRequests, setPendingRequests] = useState([]);
   const { user } = useContext(AuthContext);
-  console.log(user?.email)
   // Fetch pending requests from the server
   useEffect(() => {
     fetch(`http://localhost:5000/borrowed/pending/${user?.email}`)

@@ -15,7 +15,6 @@ const AllBooks = () => {
           `http://localhost:5000/books?page=${page}&limit=${pageSize}`
         );
         const result = await res.json();
-        console.log("Fetched books:", result.books);
         // Assuming backend returns { data: [...], total: number }
         setBooks(result.books || []);
         setTotalPages(Math.ceil((result.totalPages || 0) / pageSize));

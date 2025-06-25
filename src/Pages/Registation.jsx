@@ -32,7 +32,6 @@ const Registation = () => {
           password,
           role: "student",
         };
-        localStorage.setItem("user", JSON.stringify(userData));
         setLoading(false);
         // Send user data to the backend
         fetch("http://localhost:5000/users", {

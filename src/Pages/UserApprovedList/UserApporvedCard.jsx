@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 const UserApprovedCard = ({ book }) => {
-    console.log("Book Data:", book);
   const [singleBook, setSingleBook] = useState(null);
   useEffect(() => {
     fetch(`http://localhost:5000/books/${book.bookId}`)

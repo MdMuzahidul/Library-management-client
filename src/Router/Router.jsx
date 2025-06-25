@@ -17,6 +17,8 @@ import PendingRequestOfAdmin from "../Pages/PendingRequestOfAdmin.jsx";
 import ApprovedList from "../Pages/ApproveList/ApprovedList.jsx";
 import UserApprovedList from "../Pages/UserApprovedList/UserApprovedList.jsx";
 import WriteBlog from "../Pages/WriteBlog.jsx";
+import Private from "./Private.jsx";
+import ProtectedRouter from "./ProtectedRouter.jsx";
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -33,7 +35,12 @@ const Router = createBrowserRouter([
       },
       {
         path: "books/details/:id",
-        element: <BooksDetails></BooksDetails>,
+        element: (
+          <Private>
+            <BooksDetails></BooksDetails>
+          </Private>
+        ),
+        // element: <BooksDetails></BooksDetails>,
         loader: async ({ params }) => {
           const res = await fetch(`http://localhost:5000/books/${params.id}`);
           if (!res.ok) {
@@ -49,19 +56,35 @@ const Router = createBrowserRouter([
       { path: "/blog", element: <Blog></Blog> },
       {
         path: "/pending-requests",
-        element: <PendingRequest></PendingRequest>,
+        element: (
+          <Private>
+            <PendingRequest></PendingRequest>
+          </Private>
+        ),
       },
       {
         path: "/borrowed-books",
-        element: <UserApprovedList></UserApprovedList>,
+        element: (
+          <Private>
+            <UserApprovedList></UserApprovedList>
+          </Private>
+        ),
       },
       {
         path: "/writeblog",
-        element: <WriteBlog></WriteBlog>,
+        element: (
+          <Private>
+            <WriteBlog></WriteBlog>
+          </Private>
+        ),
       },
       {
         path: "/blog/details/:id",
-        element: <BlogDetails></BlogDetails>,
+        element: (
+          <Private>
+            <BlogDetails></BlogDetails>
+          </Private>
+        ),
         loader: async ({ params }) => {
           const res = await fetch(`http://localhost:5000/blogs/${params.id}`);
           if (!res.ok) {
@@ -88,15 +111,28 @@ const Router = createBrowserRouter([
       },
       {
         path: "/allusers",
-        element: <Allusers></Allusers>,
+        element: (
+          <ProtectedRouter>
+            {" "}
+            <Allusers></Allusers>
+          </ProtectedRouter>
+        ),
       },
       {
         path: "/pending-requests-of-admin",
-        element: <PendingRequestOfAdmin></PendingRequestOfAdmin>,
+        element: (
+          <ProtectedRouter>
+            <PendingRequestOfAdmin></PendingRequestOfAdmin>
+          </ProtectedRouter>
+        ),
       },
       {
         path: "/approved-list",
-        element: <ApprovedList></ApprovedList>,
+        element: (
+          <ProtectedRouter>
+            <ApprovedList></ApprovedList>
+          </ProtectedRouter>
+        ),
       },
     ],
   },

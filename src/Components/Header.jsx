@@ -5,11 +5,13 @@ import { NavLink } from "react-router-dom";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import { HiMenu, HiX } from "react-icons/hi";
 import { AuthContext } from "../UseContext/AuthProvider";
+import { HendleContext } from "../UseContext/HendleProvider";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+  const { currentUser } = useContext(HendleContext);
 
   const handleLogout = () => {
     logOut();
@@ -41,7 +43,7 @@ const Header = () => {
 
         {/* Navigation Links */}
         <div
-          className={`${
+          className={`$${
             isMenuOpen ? "block" : "hidden"
           } lg:flex flex-col lg:flex-row gap-6 text-lg absolute lg:static top-16 right-0 w-full lg:w-auto lg:bg-transparent p-4 lg:p-0`}
         >
@@ -73,27 +75,31 @@ const Header = () => {
           >
             About Us
           </NavLink>
-          <NavLink
-            className="hover:text-yellow-400 transition"
-            to="/allusers"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            All Users
-          </NavLink>
-          <NavLink
-            className="hover:text-yellow-400 transition"
-            to="/pending-requests-of-admin"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Pending Requests
-          </NavLink>
-          <NavLink
-            className="hover:text-yellow-400 transition"
-            to="/approved-list"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Approved List
-          </NavLink>
+          {currentUser?.role === "admin1" && (
+            <>
+              <NavLink
+                className="hover:text-yellow-400 transition"
+                to="/allusers"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                All Users
+              </NavLink>
+              <NavLink
+                className="hover:text-yellow-400 transition"
+                to="/pending-requests-of-admin"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Pending Requests
+              </NavLink>
+              <NavLink
+                className="hover:text-yellow-400 transition"
+                to="/approved-list"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Approved List
+              </NavLink>
+            </>
+          )}
         </div>
 
         {/* Search and Profile Section */}
@@ -125,20 +131,25 @@ const Header = () => {
                   >
                     Dashboard
                   </NavLink>
-                  <NavLink
-                    to="/pending-requests"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={() => setIsDropdownOpen(false)}
-                  >
-                    Pending Requests
-                  </NavLink>
-                  <NavLink
-                    to="/borrowed-books"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={() => setIsDropdownOpen(false)}
-                  >
-                    Borrow Book List
-                  </NavLink>
+                  {/* Hide Pending Requests and Borrow Book List for admin1 */}
+                  {currentUser?.role !== "admin1" && (
+                    <>
+                      <NavLink
+                        to="/pending-requests"
+                        className="block px-4 py-2 hover:bg-gray-200"
+                        onClick={() => setIsDropdownOpen(false)}
+                      >
+                        Pending Requests
+                      </NavLink>
+                      <NavLink
+                        to="/borrowed-books"
+                        className="block px-4 py-2 hover:bg-gray-200"
+                        onClick={() => setIsDropdownOpen(false)}
+                      >
+                        Borrow Book List
+                      </NavLink>
+                    </>
+                  )}
                   <button
                     className="block w-full text-left px-4 py-2 hover:bg-gray-200"
                     onClick={() => {
