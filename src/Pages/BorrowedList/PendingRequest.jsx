@@ -6,17 +6,33 @@ import PendingRequestCard from "./PendingRequestCard";
 const PendingRequest = () => {
   const [pendingRequests, setPendingRequests] = useState([]);
   const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(true);
   // Fetch pending requests from the server
   useEffect(() => {
-    fetch(`http://localhost:5000/borrowed/pending/${user?.email}`)
+    if (!user?.email) {
+      setLoading(true);
+      return;
+    }
+    setLoading(true);
+    fetch(`http://localhost:5000/borrowed/pending/${user.email}`)
       .then((response) => response.json())
       .then((data) => {
         setPendingRequests(data);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching pending requests:", error);
+        setLoading(false);
       });
   }, [user?.email]);
+
+  if (!user?.email || loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-blue-50">
+        <div className="text-xl text-gray-500">Loading...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 py-10 px-2 md:px-0 flex flex-col items-center">

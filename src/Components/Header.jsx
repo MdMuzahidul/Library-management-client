@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import logo from "../assets/Logo.jpg";
 import profile from "../assets/Profile.jpg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import { HiMenu, HiX } from "react-icons/hi";
 import { AuthContext } from "../UseContext/AuthProvider";
@@ -11,10 +11,14 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
-  const { currentUser } = useContext(HendleContext);
+  const { currentUser, setCurrentUser } = useContext(HendleContext);
+  const navigate = useNavigate();
 
-  const handleLogout = () => {
-    logOut();
+  const handleLogout = async () => {
+    await logOut();
+    setIsDropdownOpen(false);
+    setCurrentUser(null);
+    navigate("/login");
   };
 
   return (
@@ -152,11 +156,7 @@ const Header = () => {
                   )}
                   <button
                     className="block w-full text-left px-4 py-2 hover:bg-gray-200"
-                    onClick={() => {
-                      setIsDropdownOpen(false);
-                      handleLogout();
-                      // Add logout logic here
-                    }}
+                    onClick={handleLogout}
                   >
                     Logout
                   </button>

@@ -14,6 +14,7 @@ const ApprovedList = () => {
       })
       .catch(() => setLoading(false));
   }, []);
+  console.log(approved);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 py-10 px-2 md:px-0 flex flex-col items-center">
