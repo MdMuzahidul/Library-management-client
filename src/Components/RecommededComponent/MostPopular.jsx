@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import BookCard from "../Books/BookCard";
 
 const MostPopular = () => {
+  useEffect(()=>{
+    fetch()
+  },[])
   return (
     <div className="bg-gray-100 mt-8">
       <div className="bg-gradient-to-r from-blue-500 to-indigo-600 py-4 shadow-lg">

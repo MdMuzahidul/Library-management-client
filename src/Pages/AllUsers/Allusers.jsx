@@ -18,8 +18,10 @@ const Allusers = () => {
 
   // Filter users by student ID
   const filteredUsers = search
-    ? users.filter((user) =>
-        user.studentId && user.studentId.toLowerCase().includes(search.toLowerCase())
+    ? users.filter(
+        (user) =>
+          user.studentId &&
+          user.studentId.toLowerCase().includes(search.toLowerCase())
       )
     : users;
 

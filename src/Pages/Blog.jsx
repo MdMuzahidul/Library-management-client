@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BlogCard from "./BlogCard";
+import { AuthContext } from "../UseContext/AuthProvider";
 
 const Blog = () => {
+  const { user } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/blogs")
@@ -37,23 +39,25 @@ const Blog = () => {
         )}
       </div>
 
-      {/* Call to Action Section */}
-      <div className="bg-blue-600 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Want to stay updated with our latest posts?
-          </h2>
-          <p className="text-lg mb-6">
-            Register your account to our newsletter and never miss an update!
-          </p>
-          <Link
-            to="/registration"
-            className="bg-yellow-400 text-blue-800 px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-yellow-500 transition"
-          >
-            Register Now
-          </Link>
+      {/* Call to Action Section - Only show if user is not logged in */}
+      {!user && (
+        <div className="bg-blue-600 text-white py-12">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold mb-4">
+              Want to stay updated with our latest posts?
+            </h2>
+            <p className="text-lg mb-6">
+              Register your account to our newsletter and never miss an update!
+            </p>
+            <Link
+              to="/registration"
+              className="bg-yellow-400 text-blue-800 px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-yellow-500 transition"
+            >
+              Register Now
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

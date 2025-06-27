@@ -62,7 +62,7 @@ const BooksDetails = () => {
         console.error("Error fetching recommendations:", err);
       });
   }, [singleBook?.isbn]);
-  console.log("Recommended Books:", recommendedBooks);
+  // console.log("Recommended Books:", recommendedBooks);
 
   const handleBorrow = async () => {
     setError("");
@@ -181,7 +181,7 @@ const BooksDetails = () => {
                 disabled={borrowed || currentUser?.role !== "student"}
               >
                 {borrowed
-                  ? "Already Borrowed"
+                  ? "Pending Borrowed Request"
                   : currentUser?.role !== "student"
                   ? "Only students can borrow"
                   : "BORROW BOOK"}
@@ -189,7 +189,7 @@ const BooksDetails = () => {
             </div>
             {borrowed && (
               <p className="text-green-600 text-sm mt-2">
-                You have already borrowed this book.
+                sent pending request to borrow this book.
               </p>
             )}
             {error && <p className="text-red-600 text-sm mt-2">{error}</p>}

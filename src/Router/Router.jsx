@@ -19,6 +19,7 @@ import UserApprovedList from "../Pages/UserApprovedList/UserApprovedList.jsx";
 import WriteBlog from "../Pages/WriteBlog.jsx";
 import Private from "./Private.jsx";
 import ProtectedRouter from "./ProtectedRouter.jsx";
+import UserDashBoard from "../Pages/UserDashBoard/UserDashBoard.jsx";
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -52,6 +53,14 @@ const Router = createBrowserRouter([
       {
         path: "books/addbooks",
         element: <AddBooks></AddBooks>,
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <Private>
+            <UserDashBoard></UserDashBoard>
+          </Private>
+        ),
       },
       { path: "/blog", element: <Blog></Blog> },
       {
