@@ -8,7 +8,7 @@ import { HendleContext } from "../UseContext/HendleProvider";
 
 const HomePage = () => {
   const { user } = useContext(AuthContext);
-  const { currentUser, setCurrentUser } = useContext(HendleContext);
+  const { setCurrentUser } = useContext(HendleContext);
 
   useEffect(() => {
     if (!user?.email) {
@@ -34,8 +34,6 @@ const HomePage = () => {
       <Notice />
       <HeroSection />
       <MostPopular />
-      {/* Show ForYou only if currentUser role is student */}
-      {currentUser?.role === "student" && <ForYou />}
     </div>
   );
 };

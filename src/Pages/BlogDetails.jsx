@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
-
-const suggestions = [
-  { id: 1, title: "First Post", img: "https://via.placeholder.com/40" },
-  { id: 2, title: "Second Post", img: "https://via.placeholder.com/40" },
-  { id: 3, title: "Another Title", img: "https://via.placeholder.com/40" },
-];
+import BlogRecommend from "../Components/RecommededComponent/BlogRecommend";
 
 export default function BlogDetails() {
   const singleBlog = useLoaderData();
   const navigate = useNavigate();
+  const [suggestions, setSuggestions] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      `http://127.0.0.1:5000/blog_recommend?bookTitle=${singleBlog.bookTitle}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setSuggestions(data.recommendations || []);
+      });
+  }, [singleBlog.bookTitle]);
+  console.log(suggestions);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-green-100 py-10 px-2 flex flex-col items-center">
       <div className="w-full max-w-6xl flex flex-col md:flex-row gap-10">
@@ -117,23 +125,13 @@ export default function BlogDetails() {
           <h3 className="text-xl font-bold mb-4 text-green-700 border-b pb-2">
             Suggestions
           </h3>
-          <div className="space-y-3">
-            {suggestions.map((item) => (
-              <div
-                key={item.id}
-                className="flex items-center space-x-3 bg-blue-50 p-3 rounded-lg shadow-sm hover:bg-blue-100 transition"
-              >
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  className="w-10 h-10 rounded-md"
-                />
-                <span className="text-sm font-medium text-blue-900">
-                  {item.title}
-                </span>
-              </div>
-            ))}
-          </div>
+          {suggestions.length > 0 ? (
+            suggestions.map((suggestion) => (
+              <BlogRecommend key={suggestion._id} suggestion={suggestion} />
+            ))
+          ) : (
+            <p className="text-gray-500">No suggestions available</p>
+          )}
         </aside>
       </div>
       <div className="flex w-full justify-center">
