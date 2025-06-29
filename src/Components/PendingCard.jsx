@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const PendingCard = ({ request, onApprove }) => {
+const PendingCard = ({ request, setRequests, onApprove }) => {
   const [loading, setLoading] = useState(false);
   const [approved, setApproved] = useState(false);
 
@@ -21,6 +21,19 @@ const PendingCard = ({ request, onApprove }) => {
       }
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleReject = async () => {
+    const res = await fetch(
+      `http://localhost:5000/admin/borrowed/reject/${request._id}`,
+      {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    if (res.ok) {
+      setRequests((prev) => prev.filter(req => req._id !== request._id));
     }
   };
 
@@ -57,7 +70,10 @@ const PendingCard = ({ request, onApprove }) => {
           >
             {approved ? "Approved" : loading ? "Approving..." : "Approve"}
           </button>
-          <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition text-xs font-semibold">
+          <button
+            onClick={handleReject}
+            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition text-xs font-semibold"
+          >
             Reject
           </button>
         </div>

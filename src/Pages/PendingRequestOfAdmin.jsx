@@ -72,7 +72,7 @@ const PendingRequestOfAdmin = () => {
         <ul className="divide-y divide-gray-200">
           {filteredRequests.length > 0 ? (
             filteredRequests.map((request) => (
-              <PendingCard key={request.id || request._id} request={request} />
+              <PendingCard key={request.id || request._id} request={request} setRequests={setRequests} />
             ))
           ) : (
             <li className="text-gray-500 py-8 text-center">
